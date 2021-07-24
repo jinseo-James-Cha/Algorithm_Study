@@ -54,13 +54,19 @@ public class Solution {
 				if(max <= nums[i]) {
 					max = nums[i];
 					maxIndex = i;
+					flag = true;
 				} 
 			}
 			
+			if(flag) {
+				count++;
+			} else {
+				break;
+			}
+
 			for(int i = 0; i < nums.length; i++) {
-				if(i != maxIndex && max != nums[i]) {
+				if(i != maxIndex) {
 					nums[i]++;
-					flag = true;
 				}
 			}
 			
@@ -69,11 +75,6 @@ public class Solution {
 			}
 			System.out.println();
 			
-			if(flag) {
-				count++;
-			} else {
-				break;
-			}
 		}
 		
 		return count;
