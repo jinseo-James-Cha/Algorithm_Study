@@ -37,46 +37,65 @@ public class Solution {
 		 * Input: nums = [1,1,1]
          * Output: 0
 		 * */
-//		System.out.println(s.minMoves(new int[] {1,1,1}));
+		System.out.println(s.minMoves(new int[] {1,1,1}));
 	}
 	
+	// Ver.2
+	// Runtime : 1 ms    100%
+	// Memory  : 39.1 MB 93.54%
+	// Learned : 반드시 예제를 따라가면서 로직을 생각할 필요없다. 내가 생각해낸 방식이 답으로 연결된다면 그 코드를 사용하자.
 	public int minMoves(int[] nums) {
-		
-		int count = 0;
-		
-		while(true) {
-			
-			int max = nums[0];
-			int maxIndex = 0;
-			boolean flag = false;
-			
-			for(int i = 1; i < nums.length; i++) {
-				if(max <= nums[i]) {
-					max = nums[i];
-					maxIndex = i;
-					flag = true;
-				} 
+		int min = nums[0];
+		for(int i = 1; i < nums.length; i++) {
+			if(min > nums[i]) {
+				min = nums[i];
 			}
-			
-			if(flag) {
-				count++;
-			} else {
-				break;
-			}
-
-			for(int i = 0; i < nums.length; i++) {
-				if(i != maxIndex) {
-					nums[i]++;
-				}
-			}
-			
-			for(int i = 0; i < nums.length; i++) {
-				System.out.print(nums[i]);
-			}
-			System.out.println();
-			
 		}
-		
-		return count;
-    }
+		int result = 0;
+		for(int i = 0; i < nums.length; i++) {
+			result += nums[i] - min;
+		}
+		return result;
+	}
+	
+	// Ver.1
+	// problem occurred : Time Limit Exceeded [1, 100000000]
+//	public int minMoves(int[] nums) {
+//		
+//		int count = 0;
+//		
+//		while(true) {
+//			
+//			int max = nums[0];
+//			int maxIndex = 0;
+//			boolean flag = false;
+//			
+//			for(int i = 1; i < nums.length; i++) {
+//				if(max < nums[i]) {
+//					max = nums[i];
+//					maxIndex = i;
+//					flag = true;
+//				} 
+//			}
+//
+//			for(int i = 0; i < nums.length; i++) {
+//				if(i != maxIndex) {
+//					nums[i]++;
+//				}
+//			}
+//			
+////			for(int i = 0; i < nums.length; i++) {
+////				System.out.print(nums[i]);
+////			}
+////			System.out.println();
+//			
+//			if(flag) {
+//				count++;
+//			} else {
+//				break;
+//			}
+//		}
+//		
+//		return count;
+//    }
 }
