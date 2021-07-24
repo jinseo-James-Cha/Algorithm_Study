@@ -8,7 +8,6 @@ import java.util.List;
 public class Solution {
 
 	public static void main(String[] args) {
-		
 		/*
 		 * Given an integer array nums of size n, 
 		 * return the minimum number of moves required to make all array elements equal.
@@ -26,6 +25,7 @@ public class Solution {
 		
 		
 		/*
+		 * case 1
 		 * Input: nums = [1,2,3]
          * Output: 3
          * Explanation: Only three moves are needed (remember each move increments two elements):
@@ -34,13 +34,12 @@ public class Solution {
 		 * */
 		System.out.println(s.minMoves(new int[] {1,2,3}));
 		
-		
 		/*
+		 * case 2
 		 * Input: nums = [1,1,1]
          * Output: 0
 		 * */
 		System.out.println(s.minMoves(new int[] {1,1,1}));
-
 	}
 	
 	
@@ -52,9 +51,6 @@ public class Solution {
         // how to increase others
         	return 0;
         }
-        
-      
-		
 		return 0;
     }
 
