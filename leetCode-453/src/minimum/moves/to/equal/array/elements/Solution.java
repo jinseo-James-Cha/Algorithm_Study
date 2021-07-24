@@ -48,20 +48,34 @@ public class Solution {
 			
 			int max = nums[0];
 			int maxIndex = 0;
+			boolean flag = false;
 			
 			for(int i = 1; i < nums.length; i++) {
-				if(max < nums[i]) {
+				if(max <= nums[i]) {
+					max = nums[i];
 					maxIndex = i;
 				} 
 			}
 			
 			for(int i = 0; i < nums.length; i++) {
-				if(i != maxIndex) {
+				if(i != maxIndex && max != nums[i]) {
 					nums[i]++;
-					
+					flag = true;
 				}
 			}
+			
+			for(int i = 0; i < nums.length; i++) {
+				System.out.print(nums[i]);
+			}
+			System.out.println();
+			
+			if(flag) {
+				count++;
+			} else {
+				break;
+			}
 		}
-        
+		
+		return count;
     }
 }
