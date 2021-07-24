@@ -1,7 +1,7 @@
 package minimum.moves.to.equal.array.elements;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /* https://leetcode.com/problems/minimum-moves-to-equal-array-elements */
 
@@ -22,8 +22,6 @@ public class Solution {
 		 * */
 		
 		Solution s = new Solution();
-		
-		
 		/*
 		 * case 1
 		 * Input: nums = [1,2,3]
@@ -39,19 +37,31 @@ public class Solution {
 		 * Input: nums = [1,1,1]
          * Output: 0
 		 * */
-		System.out.println(s.minMoves(new int[] {1,1,1}));
+//		System.out.println(s.minMoves(new int[] {1,1,1}));
 	}
-	
 	
 	public int minMoves(int[] nums) {
 		
-        int length = nums.length;
-        if(length > 0) {
-        // how to find minimum number 
-        // how to increase others
-        	return 0;
-        }
-		return 0;
+		int count = 0;
+		
+		while(true) {
+			
+			int max = nums[0];
+			int maxIndex = 0;
+			
+			for(int i = 1; i < nums.length; i++) {
+				if(max < nums[i]) {
+					maxIndex = i;
+				} 
+			}
+			
+			for(int i = 0; i < nums.length; i++) {
+				if(i != maxIndex) {
+					nums[i]++;
+					
+				}
+			}
+		}
+        
     }
-
 }
