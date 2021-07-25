@@ -21,22 +21,26 @@ public class Solution {
 	
 	// Ver 2
 	// Approach : 런타임 시간과 메모리 사용량 줄이는 리펙토리 진행
+	// Refectoring : String-> StringBuilder로 변경
+	// RESULT
+	// Runtime: 0 ms, faster than 100.00%
+	// Memory Usage: 37.7 MB, less than 48.04%
 	public String mergeAlternately(String word1, String word2) {
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		int minLength = Math.min(word1.length(), word2.length());
 		
 		for(int i = 0; i < minLength; i++) {
-			result += word1.charAt(i);
-			result += word2.charAt(i);
+			result.append(word1.charAt(i));
+			result.append(word2.charAt(i));
 		}
 		
 		if(word1.length() > word2.length()) {
-			result += word1.substring(minLength);
+			result.append(word1.substring(minLength));
 		} else if(word1.length() < word2.length()){
-			result += word2.substring(minLength);
+			result.append(word2.substring(minLength));
 		}
 		
-		return result;
+		return result.toString();
 	}
 	
 	// Ver1
