@@ -42,7 +42,6 @@ public class Solution {
 		// Input: nums = [-3,-2,-5,3,-4] target = -1
 		// Output: -2
 		System.out.println(solution.threeSumClosest(new int[]{-3,-2,-5,3,-4}, -1));
-		
 	}
 	
 	// ver 2
