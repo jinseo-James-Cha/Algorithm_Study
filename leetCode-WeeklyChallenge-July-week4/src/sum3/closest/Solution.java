@@ -16,61 +16,97 @@ public class Solution {
 		// Input: nums = [-1,2,1,-4], target = 1
 		// Output: 2
 		// Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
-//		System.out.println(solution.threeSumClosest(new int[]{-1,2,1,-4}, 1));
+		System.out.println(solution.threeSumClosest(new int[]{-1,2,1,-4}, 1));
 //		
 //		// case 2
 //		// Input: nums = [0,1,1], target = 2
 //		// Output: 2
-//		System.out.println(solution.threeSumClosest(new int[]{0,1,1}, 2));
+		System.out.println(solution.threeSumClosest(new int[]{0,1,1}, 2));
 //		
 //		// case 3
 //		// Input: nums = [1,1,1,1], target = 0
 //		// Output: 3
-//		System.out.println(solution.threeSumClosest(new int[]{1,1,1,1}, 0));
+		System.out.println(solution.threeSumClosest(new int[]{1,1,1,1}, 0));
 //		
 //		// case 4
 //		// Input: nums = [1,1,1,0], target = 100
 //		// Output: 3
-//		System.out.println(solution.threeSumClosest(new int[]{1,1,1,0}, 100));
+		System.out.println(solution.threeSumClosest(new int[]{1,1,1,0}, 100));
 
-		// case 4
+		// case 5
 		// Input: nums = [1,1,-1,-1,3], target = 3
 		// Output: 3
 		System.out.println(solution.threeSumClosest(new int[]{1,1,-1,-1,3}, 3));
 		
+		// case 6
+		// Input: nums = [-3,-2,-5,3,-4] target = -1
+		// Output: -2
+		System.out.println(solution.threeSumClosest(new int[]{-3,-2,-5,3,-4}, -1));
+		
 	}
+	
+	// ver 2
+	// Approach : 어떤 3개의 숫자 조합이던 타겟과 가장 가까운 조합을 찾는다.
+	// RESULT
+	// Runtime: 9 ms, faster than 24.87%
+	// Memory Usage: 38.9 MB, less than 36.64%
+	public int threeSumClosest(int[] nums, int target) {
+		
+		int result = nums[0] + nums[1] + nums[2];
+		int closest = Math.abs((nums[0] + nums[1] + nums[2]) - target);
+			
+		for(int i = 0; i < nums.length - 2; i++) {
+			for(int j = i+1; j < nums.length - 1; j++) {
+				for(int k = j+1; k < nums.length; k++) {
+					int temp = nums[i] + nums[j] + nums[k];
+					int gap = Math.abs((nums[i] + nums[j] + nums[k]) - target);
+					
+					if(gap == 0) {
+						return temp;
+					}else if(gap < closest) {
+						closest = gap;
+						result = temp;
+					}
+				}
+			}
+		}
+		
+		return result;
+	}
+
+	
 	
 	// ver 1
 	// Approach : 문제 해석 실패 -> 차례대로 3개의 숫자 조합이 아닌, array내에서의 3개의 조합이 타겟과 가장 가까운 수를 찾는
-	public int threeSumClosest(int[] nums, int target) {
-        
-		int sum = 0;
-		int index = 0;
-		int gap = 0; // 3숫자의 합과 타겟의 차이, 절대값사용
-		int closest = Math.abs((nums[0] + nums[1] + nums[2]) - target); // loop 안에서 비교로 사용될 gap중 타겟과 가장 가까운 gap
-		
-		if(nums.length == 3) {
-			return nums[0] + nums[1] + nums[2];
-		}
-		
-		while(index + 2 < nums.length) {
-			int temp = 0;
-			temp = nums[index] + nums[index+1] + nums[index+2];
-			System.out.println("temp " + temp);
-			gap = Math.abs(temp - target);
-			System.out.println("gap " + gap);
-			if(gap == 0) {
-				sum = temp;
-				break; 
-			}
-			if(gap <= closest) {
-				closest = gap;
-				sum = temp;
-			}
-			System.out.println("closest " + closest);
-			index++;
-		}
-		
-		return sum;
-    }
+//	public int threeSumClosest(int[] nums, int target) {
+//        
+//		int sum = 0;
+//		int index = 0;
+//		int gap = 0; // 3숫자의 합과 타겟의 차이, 절대값사용
+//		int closest = Math.abs((nums[0] + nums[1] + nums[2]) - target); // loop 안에서 비교로 사용될 gap중 타겟과 가장 가까운 gap
+//		
+//		if(nums.length == 3) {
+//			return nums[0] + nums[1] + nums[2];
+//		}
+//		
+//		while(index + 2 < nums.length) {
+//			int temp = 0;
+//			temp = nums[index] + nums[index+1] + nums[index+2];
+//			System.out.println("temp " + temp);
+//			gap = Math.abs(temp - target);
+//			System.out.println("gap " + gap);
+//			if(gap == 0) {
+//				sum = temp;
+//				break; 
+//			}
+//			if(gap <= closest) {
+//				closest = gap;
+//				sum = temp;
+//			}
+//			System.out.println("closest " + closest);
+//			index++;
+//		}
+//		
+//		return sum;
+//    }
 }
