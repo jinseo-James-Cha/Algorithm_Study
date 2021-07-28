@@ -70,12 +70,9 @@ public class Solution {
 				}
 			}
 		}
-		
 		return result;
 	}
 
-	
-	
 	// ver 1
 	// Approach : 문제 해석 실패 -> 차례대로 3개의 숫자 조합이 아닌, array내에서의 3개의 조합이 타겟과 가장 가까운 수를 찾는
 //	public int threeSumClosest(int[] nums, int target) {
