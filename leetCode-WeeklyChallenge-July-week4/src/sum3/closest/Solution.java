@@ -43,7 +43,6 @@ public class Solution {
 		// Output: -2
 		System.out.println(solution.threeSumClosest(new int[]{-3,-2,-5,3,-4}, -1));
 	}
-	
 	// ver 2
 	// Approach : 어떤 3개의 숫자 조합이던 타겟과 가장 가까운 조합을 찾는다.
 	// RESULT
