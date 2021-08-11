@@ -122,13 +122,17 @@ public class Solution {
         		list.remove(scores.length-1);
         	}
         	
+        	// List 총 합 구하기
         	int sum = 0;
         	for(int num : list) {
         		sum += num;
         	}
+        	
+        	// List 평균 구하기
         	long avg = sum/list.size();
         	String grade = "";
         	
+        	// 평균을 이용한 학점 구하기
         	if(avg >= 90) {
         		grade = "A";
         	}else if(avg >= 80) {
