@@ -144,7 +144,6 @@ public class Solution {
         	}else {
         		grade = "F";
         	}
-        	
         	answer += grade;
         }
         return answer;
